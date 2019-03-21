@@ -7,6 +7,11 @@ namespace MonoFSM
     public abstract class FiniteState : MonoBehaviour
     {
         [SerializeField] protected FiniteStateMachine FSM;
+        
+        protected virtual void OnEnable()
+        {
+            FSM = GetComponent<FiniteStateMachine>();
+        }
 
         [Description("FSM starts the UpdateRoutine between Enter and Exit calls")]
         public abstract IEnumerator UpdateRoutine();
